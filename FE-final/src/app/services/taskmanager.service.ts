@@ -11,8 +11,8 @@ export class TaskManagerService {
 
   constructor(private http: HttpClient) { }
 
-  urlPrefix:string = `http://localhost:8080/task-manager/api/v1/user/`;
-  
+  urlPrefix:string = `http://localhost:9000/task-manager/api/v1/user/`;
+
 
   getLatestTaskID(userID: number): Observable<any> {
     return this.http.get(this.urlPrefix + `${userID}/latest-task-id`)
@@ -54,7 +54,7 @@ export class TaskManagerService {
     return this.http.put(this.urlPrefix + `${userID}/task/${taskID}/archive`, '')
   }
 
-  
+
 
   updateHeading(userID: number, taskID:number, heading:string): Observable<any> {
     return this.http.put(this.urlPrefix + `${userID}/task/${taskID}/heading`, heading)

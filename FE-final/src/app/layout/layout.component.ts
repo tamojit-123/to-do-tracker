@@ -11,6 +11,8 @@ import { TasksComponent } from '../tasks/tasks.component';
 })
 export class LayoutComponent implements OnInit {
 
+
+
   modalRef! :  BsModalRef;
   isLoggedIn:boolean = true
 

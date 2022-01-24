@@ -17,9 +17,10 @@ import { TaskCardComponent } from './task-card/task-card.component';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { TaskFormComponent } from './task-form/task-form.component';
 import { AuthenticationService } from './services/authentication.service';
-import { TaskManagerService } from './services/taskmanager.service'; 
+import { TaskManagerService } from './services/taskmanager.service';
 import { TaskReminderService } from './services/taskreminder.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { CustomToastComponent } from './custom-toast/custom-toast.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
     AuthenticationComponent,
     RegisterComponent,
     TaskCardComponent,
-    TaskFormComponent  
+    TaskFormComponent,
+    CustomToastComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,9 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
     HttpClientModule,
     ModalModule.forRoot(),
     NgbModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({
+      toastComponent: CustomToastComponent, // added custom toast!
+    }),
     ],
   providers: [AuthenticationService, TaskManagerService, TaskReminderService, ToastrService],
   bootstrap: [AppComponent]

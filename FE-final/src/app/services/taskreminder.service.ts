@@ -8,7 +8,7 @@ import { Task } from '../models/Task';
 })
 export class TaskReminderService {
 
-  urlPrefix = 'http://localhost:8080/task-reminder/api/v1/user/'
+  urlPrefix = 'http://localhost:9000/task-reminder/api/v1/user/'
 
   constructor(private http:HttpClient) { }
 

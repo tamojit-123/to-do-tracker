@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
@@ -18,10 +18,13 @@ export class RegisterComponent implements OnInit {
     })
   }
 
+  // @Output() newItemEvent = new EventEmitter<string>();
   userID!:number
   userName!:string
   email!:string
   password!:string
+
+
 
   doRegister() {
     this.authService.registerUser(this.userID, this.userName, this.email, this.password)

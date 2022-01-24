@@ -28,10 +28,10 @@
           ><i class="fas fa-exclamation-circle fa-fw me-3"></i><span>High Priority</span></a
           >
           <a (click)='getOverDue()' class="list-group-item list-group-item-action py-2 ripple">
-            <i class="fas fa-exclamation-triangle fa-fw me-3"></i><span>Over Due</span>
+            <i class="fas fa-exclamation-triangle fa-fw me-3"></i><span>Over Due <span class="badge rounded-pill badge-notification bg-danger">{{overDueCount}}</span></span>
           </a>
           <a (click)='getNearDue()' class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-exclamation fa-fw me-3"></i><span>Near Due</span></a
+          ><i class="fas fa-exclamation fa-fw me-3"></i><span>Near Due <span class="badge rounded-pill badge-notification bg-danger">{{nearDueCount}}</span></span></a
           >
           <a (click)='getCompleted()' class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-check-circle fa-fw me-3"></i><span>Completed</span></a
@@ -45,9 +45,10 @@
     <!-- Sidebar -->
   </header>
   <!--Main Navigation-->
-    <div class="row m-5" >
+  <div class="container" style="margin-left: auto;">
+    <div class="row m-5">
         <app-task-card class="p-3 col-lg-3 col-md-6 col-sm-12 h-25" style="margin: auto;" *ngFor="let task of tasksToDisplay" [task]='task'></app-task-card>
     </div>
-
+  </div>
 </div>
 

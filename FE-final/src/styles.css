@@ -24,3 +24,37 @@ body, html {
     height: 100%;
     margin: 0;
 }
+
+/*.toast-container {*/
+/*    border-radius: 22px !important;*/
+/*    box-shadow: -5px 8px 16px 0px rgba(0,0,0,0.3) !important;*/
+/*    margin-bottom: 2px !important;*/
+/*}*/
+
+/*.toast-container .toast {*/
+/*    margin: 2px !important;*/
+/*    box-shadow: none !important;*/
+/*    border-radius: 20px !important;*/
+/*    background-color: #fff !important;*/
+/*}*/
+
+/*.toast-success{*/
+/*    background-image: none !important;*/
+/*}*/
+
+/*.toast-done::after{*/
+/*    position: absolute !important;*/
+/*    top: 14px !important;*/
+/*    left: 15px !important;*/
+/*    color: skyblue !important;*/
+/*    font-size: 1.5em !important;*/
+/*}*/
+
+/*.toast-title{*/
+/*    color: white;*/
+/*    font-size: 16px !important;*/
+/*}*/
+
+/*.toast-message{*/
+/*    color:#8f8f8f !important;*/
+/*}*/

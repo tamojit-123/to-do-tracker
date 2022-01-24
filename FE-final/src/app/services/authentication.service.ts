@@ -9,7 +9,7 @@ export class AuthenticationService {
 
   constructor(private httpClient: HttpClient) { }
 
-  urlPrefix:string = 'http://localhost:8080';
+  urlPrefix:string = 'http://localhost:9000';
 
   getLatestUserID(): Observable<any> {
     return this.httpClient.get(this.urlPrefix + '/authentication/api/v1/latest-id')

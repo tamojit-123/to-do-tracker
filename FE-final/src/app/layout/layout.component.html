@@ -32,7 +32,7 @@
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#"><b>TO-DO Tracker</b></a>
+          <a class="nav-link"><b>TO-DO Tracker</b></a>
         </li>
       </ul>
       <!-- Left links -->
@@ -43,6 +43,7 @@
 
         <a *ngIf='!isLoggedIn' class="btn px-3" href="/login" role="button"><i class="fas fa-sign-in-alt"></i> Login</a>
         <a *ngIf='!isLoggedIn' class="btn px-3" href="/register" role="button"><i class="fas fa-user-plus"></i> Register</a>
+<!--        <a *ngIf='isLoggedIn'>{{userName}}</a>-->
       </div>
     </div>
     <!-- Collapsible wrapper -->
@@ -64,10 +65,10 @@
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
     © 2022 Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/"><img
+    <a class="text-reset fw-bold"><img
             src="assets/tasks.png"
             height="25"
-            alt="MDB Logo"
+            alt="TO-DO Tracker"
             loading="lazy"
             style="margin-top: -1px;"
     /> TO-DO Tracker</a>

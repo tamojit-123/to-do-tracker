@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class TaskArchiveService {
 
-  urlPrefix: string = 'http://localhost:8080/task-archive/api/v1/'
+  urlPrefix: string = 'http://localhost:9000/task-archive/api/v1/'
 
   constructor(private http: HttpClient) { }
 

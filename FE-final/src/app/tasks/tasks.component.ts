@@ -80,22 +80,24 @@ export class TasksComponent implements OnInit {
 
 
   showOverDueToast(count: number) {
-    this.toastr.warning('Over Due', `You've ${count} tasks in overdue!`, {
+    this.toastr.show('Over Due', `You've ${count} tasks in over-due!`, {
       timeOut: 22000,
       positionClass: 'toast-top-right',
       closeButton: true,
       progressBar: true,
-      progressAnimation: 'increasing'
+      progressAnimation: 'increasing',
+      toastClass: "border-red",
     })
   }
 
   showNearDueToast(count: number) {
-    this.toastr.info('Near Due', `You've ${count} tasks in neardue!`, {
+    this.toastr.show('Near Due', `You've ${count} tasks in near-due!`, {
       timeOut: 18000,
       positionClass: 'toast-top-right',
       closeButton: true,
       progressBar: true,
-      progressAnimation: 'increasing'
+      progressAnimation: 'increasing',
+      toastClass: "border-blue",
     })
   }
 }
