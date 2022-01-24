@@ -1,0 +1,1 @@
+[{"__symbolic":"module","version":4,"metadata":{},"exports":[{"from":"./index"},{"from":"./rating.component","export":[{"name":"RATING_CONTROL_VALUE_ACCESSOR","as":"ɵa"}]}]}]

@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../../src/rating/models/index.ts"],"names":[],"mappings":"","sourcesContent":["export interface RatingResults {\n  index: number;\n  title: string | number;\n}\n"]}

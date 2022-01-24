@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../../src/carousel/models/index.ts"],"names":[],"mappings":"","sourcesContent":["import { SlideComponent } from '../slide.component';\n\nexport interface SlideWithIndex {\n  item: SlideComponent;\n  index: number;\n}\n\nexport interface IndexedSlideList {\n  list: SlideWithIndex[];\n  index: number;\n}\n"]}

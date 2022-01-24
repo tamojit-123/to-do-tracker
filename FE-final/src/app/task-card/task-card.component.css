@@ -1,0 +1,12 @@
+.high{
+    border-bottom:5px solid tomato;
+}
+
+.med{
+    border-bottom:5px solid #e6c300 ;
+}
+
+.low{
+    border-bottom:5px solid #1276dc;
+}
+

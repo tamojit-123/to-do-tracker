@@ -1,0 +1,1 @@
+{"version":3,"file":"isBrowser.js","sourceRoot":"","sources":["../../../../../src/positioning/utils/isBrowser.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,MAAM,SAAS,GAAG,OAAO,MAAM,KAAK,WAAW,IAAI,OAAO,QAAQ,KAAK,WAAW,CAAC","sourcesContent":["export const isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';\n"]}

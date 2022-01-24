@@ -1,0 +1,1 @@
+[{"__symbolic":"module","version":4,"metadata":{},"exports":[{"from":"./index"},{"from":"./theme-provider","export":[{"name":"isBs4","as":"ɵa"},{"name":"isBs5","as":"ɵb"}]}]}]

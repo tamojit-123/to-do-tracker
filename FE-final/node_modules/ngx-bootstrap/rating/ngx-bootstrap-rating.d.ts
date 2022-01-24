@@ -1,0 +1,5 @@
+/**
+ * Generated bundle index. Do not edit.
+ */
+export * from './index';
+export { RATING_CONTROL_VALUE_ACCESSOR as ɵa } from './rating.component';

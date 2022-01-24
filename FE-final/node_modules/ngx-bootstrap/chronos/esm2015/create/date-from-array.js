@@ -1,0 +1,19 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function createUTCDate(y, m, d) {
+    // eslint-disable-next-line prefer-rest-params
+    const date = new Date(Date.UTC.apply(null, arguments));
+    // the Date.UTC function remaps years 0-99 to 1900-1999
+    if (y < 100 && y >= 0 && isFinite(date.getUTCFullYear())) {
+        date.setUTCFullYear(y);
+    }
+    return date;
+}
+export function createDate(y, m = 0, d = 1, h = 0, M = 0, s = 0, ms = 0) {
+    const date = new Date(y, m, d, h, M, s, ms);
+    // the date constructor remaps years 0-99 to 1900-1999
+    if (y < 100 && y >= 0 && isFinite(date.getFullYear())) {
+        date.setFullYear(y);
+    }
+    return date;
+}
+//# sourceMappingURL=date-from-array.js.map

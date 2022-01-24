@@ -1,0 +1,1 @@
+[{"__symbolic":"module","version":4,"metadata":{},"exports":[{"from":"./ng-positioning","export":["positionElements","Positioning"]},{"from":"./positioning.service","export":["PositioningService","PositioningOptions"]},{"from":"./models","export":["AvailbleBSPositions","PlacementForBs5"]},{"from":"./utils/checkMargin","export":["checkMargins"]}]}]

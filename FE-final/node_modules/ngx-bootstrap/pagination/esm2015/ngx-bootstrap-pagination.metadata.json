@@ -1,0 +1,1 @@
+[{"__symbolic":"module","version":4,"metadata":{},"exports":[{"from":"./index"},{"from":"./pager.component","export":[{"name":"PAGER_CONTROL_VALUE_ACCESSOR","as":"ɵa"}]},{"from":"./pagination.component","export":[{"name":"PAGINATION_CONTROL_VALUE_ACCESSOR","as":"ɵb"}]}]}]

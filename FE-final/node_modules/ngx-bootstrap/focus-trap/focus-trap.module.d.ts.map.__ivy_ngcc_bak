@@ -1,0 +1,1 @@
+{"version":3,"file":"focus-trap.module.d.ts","sources":["focus-trap.module.d.ts"],"names":[],"mappings":"AAAA;;;;AACA;AACA;;;AACA","sourcesContent":["import { ModuleWithProviders } from '@angular/core';\nexport declare class FocusTrapModule {\n    static forRoot(): ModuleWithProviders<FocusTrapModule>;\n}\n"]}

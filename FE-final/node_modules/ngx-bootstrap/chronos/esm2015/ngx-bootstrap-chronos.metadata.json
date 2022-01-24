@@ -1,0 +1,1 @@
+[{"__symbolic":"module","version":4,"metadata":{},"exports":[{"from":"./index"},{"from":"./create/date-from-array","export":[{"name":"createDate","as":"ɵa"}]}]}]
