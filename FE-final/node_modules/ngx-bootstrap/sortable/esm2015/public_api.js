@@ -1,4 +1,0 @@
-export { SortableModule } from './sortable.module';
-export { SortableComponent } from './sortable.component';
-export { DraggableItemService } from './draggable-item.service';
-//# sourceMappingURL=public_api.js.map
