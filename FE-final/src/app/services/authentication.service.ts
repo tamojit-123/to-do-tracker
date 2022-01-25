@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -31,9 +32,20 @@ export class AuthenticationService {
       })
   }
 
+  // loginUser(user: any) {
+  //   return this.httpClient.post<any>(this.urlPrefix + '/task-manager/api/v1/login', user)
+  //       .pipe(map(userData => {
+  //             sessionStorage.setItem("email", user.email);
+  //             let tokenStr = "Bearer " + userData.token;
+  //             sessionStorage.setItem("token", tokenStr);
+  //             console.log(sessionStorage.getItem(tokenStr));
+  //
+  //             return userData;
+  //           })
+  //       );
+  // }
+
   isLoggedIn:boolean = false
-  loggedInUserID!:number
-  userName:string=""
 
   logout() {
     this.isLoggedIn = false;

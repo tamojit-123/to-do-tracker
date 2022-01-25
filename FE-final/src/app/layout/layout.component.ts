@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { TaskFormComponent } from '../task-form/task-form.component';
 import { TasksComponent } from '../tasks/tasks.component';
+import {AuthenticationService} from "../services/authentication.service";
 
 @Component({
   selector: 'app-layout',
@@ -19,7 +20,9 @@ export class LayoutComponent implements OnInit {
   overDueMessage!:string
   nearDueMessage!:string
 
-  constructor(private modalService: BsModalService, private router: Router) {}
+  currentUser = localStorage.getItem('currentUserID')
+
+  constructor(private modalService: BsModalService, private router: Router, private authenticationService: AuthenticationService) {}
 
   ngOnInit(): void {
     let logged:string|null = localStorage.getItem('loggedIn')

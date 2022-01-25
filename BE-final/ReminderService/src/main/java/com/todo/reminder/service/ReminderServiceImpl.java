@@ -24,12 +24,17 @@ import javax.mail.internet.MimeMessage;
 public class ReminderServiceImpl implements ReminderService {
 
     private ReminderRepository reminderRepo;
-    private JavaMailSender mailSender;
+//    private JavaMailSender mailSender;
+
+//    @Autowired
+//    public ReminderServiceImpl(ReminderRepository reminderRepo, JavaMailSender mailSender) {
+//        this.reminderRepo = reminderRepo;
+//        this.mailSender = mailSender;
+//    }
 
     @Autowired
-    public ReminderServiceImpl(ReminderRepository reminderRepo, JavaMailSender mailSender) {
+    public ReminderServiceImpl(ReminderRepository reminderRepo) {
         this.reminderRepo = reminderRepo;
-        this.mailSender = mailSender;
     }
 
     Comparator<Task> dueDateComparator = ((taskA, taskB) -> {
@@ -184,51 +189,51 @@ public class ReminderServiceImpl implements ReminderService {
         return pendingTasks.stream().sorted(priorityComparator).collect(Collectors.toList());
     }
 
-    @Override
-    public String sendEmailReminders() throws UserNotFoundException, MessagingException {
-
-        List<User> users = reminderRepo.findAll();
-        StringBuilder outputMessage = new StringBuilder("\n");
-
-        for (User user: users) {
-            List<Task> overDueTasks = getTasksWithOverDue(user.getUserID());
-            List<Task> nearDueTasks = getTasksWithNearDueDate(user.getUserID());
-
-            if (overDueTasks.isEmpty() && nearDueTasks.isEmpty()) {
-                outputMessage.append("\nThe user [userID: " + user.getUserID() + "] currently has no overdue/neardue tasks to notify!");
-                continue;
-            }
-
-            MimeMessage mimeMessage = mailSender.createMimeMessage();
-            MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
-
-            messageHelper.setTo(user.getEmail());
-            messageHelper.setSubject("Your ToDo Reminder");
-
-            StringBuilder mailBody = new StringBuilder("<h2>Hello " + user.getUserName() + "! This email is a reminder from 'ToDo Tracker' regarding your important pending tasks.</h2>");
-
-            if (!overDueTasks.isEmpty()) {
-                mailBody.append("<br><h3>Over Due Tasks<h3><ol>");
-                overDueTasks.forEach((t) -> mailBody.append("<li> Task Headline : '" + t.getTaskHeading() + "'   **   Due date : " + t.getDueDate() + "   **   Priority Level : " + t.getPriorityLevel() + "</li>"));
-                mailBody.append("</ol>");
-            }
-
-            if (!nearDueTasks.isEmpty()) {
-                mailBody.append("<br><h3>Near Due Tasks<h3><ol>");
-                nearDueTasks.forEach((t) -> mailBody.append("<li> Task Headline : '" + t.getTaskHeading() + "'  **   Due date : " + t.getDueDate() + "   **   Priority Level : " + t.getPriorityLevel() + "</li>"));
-                mailBody.append("</ol>");
-            }
-
-            mailBody.append("<br><p>To view more details of the above notified tasks or to update them, please login to your 'ToDo Tracker' application!</p><br><h4>The ToDo Tracker Team</h4>");
-
-            messageHelper.setText(mailBody.toString(), true);
-
-//            mailSender.send(mimeMessage);
-            outputMessage.append("\nThe user [userID: " + user.getUserID() + "] has been successfully notified of their tasks via email!");
-
-        }
-
-        return outputMessage.toString() + "\n";
-    }
+//    @Override
+//    public String sendEmailReminders() throws UserNotFoundException, MessagingException {
+//
+//        List<User> users = reminderRepo.findAll();
+//        StringBuilder outputMessage = new StringBuilder("\n");
+//
+//        for (User user: users) {
+//            List<Task> overDueTasks = getTasksWithOverDue(user.getUserID());
+//            List<Task> nearDueTasks = getTasksWithNearDueDate(user.getUserID());
+//
+//            if (overDueTasks.isEmpty() && nearDueTasks.isEmpty()) {
+//                outputMessage.append("\nThe user [userID: " + user.getUserID() + "] currently has no overdue/neardue tasks to notify!");
+//                continue;
+//            }
+//
+//            MimeMessage mimeMessage = mailSender.createMimeMessage();
+//            MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
+//
+//            messageHelper.setTo(user.getEmail());
+//            messageHelper.setSubject("Your ToDo Reminder");
+//
+//            StringBuilder mailBody = new StringBuilder("<h2>Hello " + user.getUserName() + "! This email is a reminder from 'ToDo Tracker' regarding your important pending tasks.</h2>");
+//
+//            if (!overDueTasks.isEmpty()) {
+//                mailBody.append("<br><h3>Over Due Tasks<h3><ol>");
+//                overDueTasks.forEach((t) -> mailBody.append("<li> Task Headline : '" + t.getTaskHeading() + "'   **   Due date : " + t.getDueDate() + "   **   Priority Level : " + t.getPriorityLevel() + "</li>"));
+//                mailBody.append("</ol>");
+//            }
+//
+//            if (!nearDueTasks.isEmpty()) {
+//                mailBody.append("<br><h3>Near Due Tasks<h3><ol>");
+//                nearDueTasks.forEach((t) -> mailBody.append("<li> Task Headline : '" + t.getTaskHeading() + "'  **   Due date : " + t.getDueDate() + "   **   Priority Level : " + t.getPriorityLevel() + "</li>"));
+//                mailBody.append("</ol>");
+//            }
+//
+//            mailBody.append("<br><p>To view more details of the above notified tasks or to update them, please login to your 'ToDo Tracker' application!</p><br><h4>The ToDo Tracker Team</h4>");
+//
+//            messageHelper.setText(mailBody.toString(), true);
+//
+////            mailSender.send(mimeMessage);
+//            outputMessage.append("\nThe user [userID: " + user.getUserID() + "] has been successfully notified of their tasks via email!");
+//
+//        }
+//
+//        return outputMessage.toString() + "\n";
+//    }
 
 }

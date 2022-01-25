@@ -4,7 +4,7 @@
   <!-- Container wrapper -->
   <div class="container">
     <!-- Navbar brand -->
-    <a class="navbar-brand me-2" href="https://mdbgo.com/">
+    <a class="navbar-brand me-2">
       <img
               src="assets/tasks.png"
               height="40"
@@ -40,10 +40,17 @@
       <div class="d-flex align-items-center">
         <a *ngIf='isLoggedIn' (click)="openModal()" class="btn px-3" role="button"><i class="fas fa-plus-circle"></i> Add note</a>
         <a *ngIf='isLoggedIn' (click)="logout()" class="btn px-3" role="button"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <img *ngIf='isLoggedIn'
+                src="https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png"
+                class="rounded-circle"
+                style="width: 40px;"
+                alt="Avatar"
+        /> <h5>{{currentUser}}</h5>
+
 
         <a *ngIf='!isLoggedIn' class="btn px-3" href="/login" role="button"><i class="fas fa-sign-in-alt"></i> Login</a>
         <a *ngIf='!isLoggedIn' class="btn px-3" href="/register" role="button"><i class="fas fa-user-plus"></i> Register</a>
-<!--        <a *ngIf='isLoggedIn'>{{userName}}</a>-->
+
       </div>
     </div>
     <!-- Collapsible wrapper -->

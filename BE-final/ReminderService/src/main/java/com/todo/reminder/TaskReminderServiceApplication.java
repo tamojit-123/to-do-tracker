@@ -26,8 +26,8 @@ public class TaskReminderServiceApplication {
         this.reminderService = reminderService;
     }
 
-    @EventListener(ApplicationReadyEvent.class)
-    public void sendEmailReminderOInit() throws UserNotFoundException, MessagingException {
-        System.out.println(reminderService.sendEmailReminders());
-    }
+//    @EventListener(ApplicationReadyEvent.class)
+//    public void sendEmailReminderOInit() throws UserNotFoundException, MessagingException {
+//        System.out.println(reminderService.sendEmailReminders());
+//    }
 }

@@ -27,5 +27,5 @@ public interface ReminderService {
 
     List<Task> getTasksSortedByPriorityLevel(int userID) throws UserNotFoundException;
 
-    String sendEmailReminders() throws UserNotFoundException, MessagingException;
+//    String sendEmailReminders() throws UserNotFoundException, MessagingException;
 }

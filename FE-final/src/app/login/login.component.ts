@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { LayoutComponent } from '../layout/layout.component';
 import { AuthenticationService } from '../services/authentication.service';
+import {Users} from "../models/Users";
 
 @Component({
   selector: 'app-login',
@@ -36,5 +37,27 @@ export class LoginComponent implements OnInit {
                       this.layoutComp.ngOnInit()
                       this.router.navigateByUrl('/cards') */
   }
+
+    // doLogin(): void {
+    //     let newAccount: Users = new Users();
+    //
+    //     // newAccount.email = this.loginForm.value.emailId;
+    //     // newAccount.password = this.loginForm.value.password;
+    //
+    //     this.authService.loginUser(newAccount).subscribe(data => {
+    //             console.log(data);
+    //             this.router.navigateByUrl('/cards')
+    //             // this.invalidLogin = false
+    //             // this.snackBar.open("Login Successfully", "X");
+    //
+    //         },
+    //
+    //         error => {
+    //             // this.invalidLogin = true
+    //             // this.error = error.message;
+    //             // this.snackBar.open("Login Failed", "X");
+    //
+    //         });
+    // }
 
 }
