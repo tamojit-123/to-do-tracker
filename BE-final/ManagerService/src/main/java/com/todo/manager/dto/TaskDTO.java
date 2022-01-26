@@ -19,6 +19,7 @@ public class TaskDTO {
     private String dueDate;
     private Priority priorityLevel;
     private String category;
-    private List<Image> images;
+//    private List<Image> images;
+    private String imageUrl;
     private boolean isCompleted;
 }

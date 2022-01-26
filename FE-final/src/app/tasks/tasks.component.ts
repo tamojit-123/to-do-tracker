@@ -21,7 +21,10 @@ export class TasksComponent implements OnInit {
   nearDueMessage: string = 'You have no tasks pending in Near Due!'
   overDueMessage: string = 'You have no tasks pending in Over Due!'
 
-  constructor(private reminderService: TaskReminderService, private archiveService: TaskArchiveService, private toastr: ToastrService) { }
+  constructor(
+      private reminderService: TaskReminderService,
+      private archiveService: TaskArchiveService,
+      private toastr: ToastrService) { }
 
   ngOnInit(): void {
 

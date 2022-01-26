@@ -1,15 +1,15 @@
 <div class="card" [ngClass]='priorityClass()'>
     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-<!--        <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid" alt=""/>-->
+<!--            <img src="{{ task.imageUrl }}" class="img-fluid" alt="{{ task.taskHeading }}"/>-->
         <a>
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);" [ngClass]='priorityClass()'></div>
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
         </a>
     </div>
     <div class="card-body">
         <div>
-            <span><h5 class="card-title">{{task.taskHeading}} <i *ngIf='task.completed' class="fas fa-check-circle" style="color: green"></i></h5></span>
+            <span><h4 class="card-title">{{task.taskHeading}} <i *ngIf='task.completed' class="fas fa-check-circle" style="color: green"></i></h4></span>
         </div>
-        <p class="card-text">{{task.taskContent}}</p>
+        <p class="card-title">{{task.taskContent}}</p>
         <h4 class="card-title"><i class="fas fa-clock"></i> {{task.dueDate}}</h4>
             <div class="col-2">
                 <div class="dropdown" dropdown>
@@ -24,49 +24,15 @@
                             <button class="dropdown-item cardDetails" (click)=openConfirmModal(confirmArchive)>Move to archive</button>
                         </div>
                 </div>
+<!--                <input type="file" (change)="selectFile($event)" />-->
+<!--                <button type="button" class="btn btn-primary row" [disabled]="!selectedFiles" (click)="upload()">-->
+<!--                    <i class="fas fa-image"></i>-->
+<!--                </button>-->
             </div>
+
 <!--        <div [ngClass]='priorityClass()'></div>-->
     </div>
 </div>
-            <!----------------------------------------------------------------------------------------------->
-<!--<div class="cards">-->
-<!--    <div class="card-header">-->
-<!--        <div class="row ">-->
-<!--            <div class="col-10">-->
-<!--                <p class="heading">{{task.taskHeading}}</p>-->
-<!--            </div>-->
-<!--            <div class="col-2 completed-icon" *ngIf='task.completed'>-->
-<!--                <span><mdb-icon fas icon="check-double fa-lg"></mdb-icon></span>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--    <div class="card-body ">-->
-<!--      <p class="card-text">{{task.taskContent}}</p>-->
-<!--    </div>-->
-<!--    <div class="card-footer " [ngClass]='priorityClass()'>-->
-
-<!--        <div class="row">-->
-<!--            <div class="col-9 dueDate">-->
-<!--                <mdb-icon far icon="clock" class="pr-1"></mdb-icon>{{task.dueDate}}<span class="sr-only"></span>-->
-<!--            </div>-->
-
-<!--            <div class="col-2">-->
-<!--                <div class="dropdown" dropdown>-->
-<!--                    <a dropdownToggle  type="button" class="nav-link sub-menu" >-->
-<!--                        <mdb-icon fas icon="angle-double-right"></mdb-icon><span class="caret"></span></a>-->
-<!--                        <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">-->
-<!--                            <button class="dropdown-item cardDetails" *ngIf='!task.completed' (click)="openFormModal(viewModal)">View Details</button>-->
-<!--                            <button class="dropdown-item cardDetails" *ngIf='!task.completed' (click)="openFormModal(editModal)">Update</button>-->
-<!--                            <button class="dropdown-item cardDetails" *ngIf='!task.completed' (click)="openConfirmModal(confirmComplete)">Mark as Complete</button>-->
-<!--                            <button class="dropdown-item cardDetails" (click)="openConfirmModal(confirmDelete)">Delete</button>-->
-<!--                            <button class="dropdown-item cardDetails" (click)=openConfirmModal(confirmArchive)>Move to archive</button>-->
-<!--                        </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--  </div>-->
 
   <ng-template #viewModal let-modal>
     <div class="modal-content text-color"  id="taskModel" tabindex="1" role="dialog" aria-labelledby="taskModelForm" aria-hidden="true">
@@ -104,6 +70,16 @@
                         <div class="form-group">
                             <label for="category" >Category </label>
                             <input type="text" name="category" id="category" class='form-control' formControlName='category' readonly>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="category" >Image Link </label>
+                            <input type="text" name="imageUrl" id="imageUrl" class='form-control' formControlName='imageUrl' readonly>
 
                         </div>
                     </div>
@@ -224,8 +200,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" (click)='modal.close()'>Close</button>
-                    <input class="btn btn-save" type="submit" value="Save Changes"/>
+<!--                    <button type="button" class="btn btn-secondary" (click)='modal.close()'>Close</button>-->
+                    <input class="btn btn-primary" type="submit" value="Save Changes"/>
                   </div>
 
             </form>

@@ -220,7 +220,8 @@ public class UserTaskServiceImpl implements UserTaskService {
     }
 
     @Override
-    public boolean addImageToTask(int userID, int taskID, Image image) throws UserNotFoundException, TaskNotFoundException {
+    public String updateTaskImage(int userID, int taskID, String imageUrl)
+            throws UserNotFoundException, TaskNotFoundException {
         Optional<User> optionalUser = repository.findById(userID);
         if (optionalUser.isEmpty()) {
             throw new UserNotFoundException();
@@ -230,40 +231,61 @@ public class UserTaskServiceImpl implements UserTaskService {
         for (Task task : userTasks) {
             if (task.getTaskID() == taskID) {
                 userTasks.remove(task);
-                List<Image> images = task.getImages();
-                images.add(image);
-                task.setImages(images);
+                task.setImageUrl(imageUrl);
                 userTasks.add(task);
                 user.setTasks(userTasks);
                 repository.save(user);
-                return true;
+                return "The task's image has been updated to: \n" + imageUrl;
             }
         }
         throw new TaskNotFoundException();
     }
 
-    @Override
-    public boolean deleteImageFromTask(int userID, int taskID, Image image) throws UserNotFoundException, TaskNotFoundException {
-        Optional<User> optionalUser = repository.findById(userID);
-        if (optionalUser.isEmpty()) {
-            throw new UserNotFoundException();
-        }
-        User user = optionalUser.get();
-        List<Task> userTasks = user.getTasks();
-        for (Task task : userTasks) {
-            if (task.getTaskID() == taskID) {
-                userTasks.remove(task);
-                List<Image> images = task.getImages();
-                images.remove(image);
-                task.setImages(images);
-                userTasks.add(task);
-                user.setTasks(userTasks);
-                repository.save(user);
-                return true;
-            }
-        }
-        throw new TaskNotFoundException();
-    }
+//    @Override
+//    public boolean addImageToTask(int userID, int taskID, Image image) throws UserNotFoundException, TaskNotFoundException {
+//        Optional<User> optionalUser = repository.findById(userID);
+//        if (optionalUser.isEmpty()) {
+//            throw new UserNotFoundException();
+//        }
+//        User user = optionalUser.get();
+//        List<Task> userTasks = user.getTasks();
+//        for (Task task : userTasks) {
+//            if (task.getTaskID() == taskID) {
+//                userTasks.remove(task);
+//                List<Image> images = task.getImages();
+//                images.add(image);
+//                task.setImages(images);
+//                userTasks.add(task);
+//                user.setTasks(userTasks);
+//                repository.save(user);
+//                return true;
+//            }
+//        }
+//        throw new TaskNotFoundException();
+//    }
+
+//    @Override
+//    public boolean deleteImageFromTask(int userID, int taskID, Image imageURL) throws UserNotFoundException, TaskNotFoundException {
+//        Optional<User> optionalUser = repository.findById(userID);
+//        if (optionalUser.isEmpty()) {
+//            throw new UserNotFoundException();
+//        }
+//        User user = optionalUser.get();
+//        List<Task> userTasks = user.getTasks();
+//        for (Task task : userTasks) {
+//            if (task.getTaskID() == taskID) {
+//                userTasks.remove(task);
+//                List<Image> images = task.getImageUrl();
+//                images.remove(imageURL);
+//                task.setImageUrl(imageURL);
+//                userTasks.add(task);
+//                user.setTasks(userTasks);
+//                repository.save(user);
+//                return true;
+//            }
+//        }
+//        throw new TaskNotFoundException();
+//    }
 
     @Override
     public boolean markTaskAsCompleted(int userID, int taskID) throws UserNotFoundException, TaskNotFoundException {
@@ -297,7 +319,7 @@ public class UserTaskServiceImpl implements UserTaskService {
         for (Task task : userTasks) {
             if (task.getTaskID() == taskID) {
                 userTasks.remove(task);
-                TaskDTO taskDTO = new TaskDTO(task.getTaskID(), userID, task.getTaskHeading(), task.getTaskContent(), task.getDueDate(), task.getPriorityLevel(), task.getCategory(), task.getImages(), task.isCompleted());
+                TaskDTO taskDTO = new TaskDTO(task.getTaskID(), userID, task.getTaskHeading(), task.getTaskContent(), task.getDueDate(), task.getPriorityLevel(), task.getCategory(), task.getImageUrl(), task.isCompleted());
                 rabbitTemplate.convertAndSend("task-exchange", "archive", taskDTO);
                 user.setTasks(userTasks);
                 repository.save(user);

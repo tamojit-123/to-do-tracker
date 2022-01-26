@@ -12,7 +12,10 @@ import {Users} from "../models/Users";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService, private router:Router, private layoutComp: LayoutComponent) { }
+  constructor(
+      private authService: AuthenticationService,
+      private router:Router,
+      private layoutComp: LayoutComponent) { }
 
   ngOnInit(): void {
   }

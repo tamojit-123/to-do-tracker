@@ -22,7 +22,9 @@ export class LayoutComponent implements OnInit {
 
   currentUser = localStorage.getItem('currentUserID')
 
-  constructor(private modalService: BsModalService, private router: Router, private authenticationService: AuthenticationService) {}
+  constructor(private modalService: BsModalService,
+              private router: Router,
+              private authenticationService: AuthenticationService) {}
 
   ngOnInit(): void {
     let logged:string|null = localStorage.getItem('loggedIn')

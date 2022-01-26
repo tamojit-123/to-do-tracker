@@ -25,8 +25,9 @@ public interface UserTaskService {
     String updateTaskDueDate(int userID, int taskID, String dueDate) throws UserNotFoundException, TaskNotFoundException;
     String updateTaskPriority(int userID, int taskID, String priorityLevel) throws UserNotFoundException, TaskNotFoundException;
     String updateTaskCategory(int userID, int taskID, String category) throws UserNotFoundException, TaskNotFoundException;
-    boolean addImageToTask(int userID, int taskID, Image image) throws UserNotFoundException, TaskNotFoundException;
-    boolean deleteImageFromTask(int userID, int taskID,  Image image) throws UserNotFoundException, TaskNotFoundException;
+    String updateTaskImage(int userID, int taskID, String imageUrl) throws UserNotFoundException, TaskNotFoundException;
+//    boolean addImageToTask(int userID, int taskID, Image image) throws UserNotFoundException, TaskNotFoundException;
+//    boolean deleteImageFromTask(int userID, int taskID,  Image image) throws UserNotFoundException, TaskNotFoundException;
     boolean markTaskAsCompleted(int userID, int taskID) throws UserNotFoundException, TaskNotFoundException;
 
     boolean moveTaskToArchive(int userID, int taskID) throws UserNotFoundException, TaskNotFoundException ;

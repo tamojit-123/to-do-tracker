@@ -27,6 +27,7 @@ export class TaskManagerService {
       "dueDate":task.dueDate,
       "priorityLevel":task.priorityLevel,
       "category":task.category,
+      "imageUrl":task.imageUrl,
       "completed":task.completed
     })
   }
@@ -38,6 +39,7 @@ export class TaskManagerService {
       "dueDate":task.dueDate,
       "priorityLevel":task.priorityLevel,
       "category":task.category,
+      "imageUrl":task.imageUrl,
       "completed":task.completed
     })
   }

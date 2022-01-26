@@ -178,10 +178,10 @@ public class UserTaskController {
         }
     }
 
-    @PostMapping("/user/{userID}/task/{taskID}/image")
-    public ResponseEntity<?> addImageToTask(@PathVariable("userID") int userID, @PathVariable("taskID") int taskID, @RequestBody Image image) throws UserNotFoundException, TaskNotFoundException {
+    @PutMapping("/user/{userID}/task/{taskID}/image")
+    public ResponseEntity<?> updateTaskImage(@PathVariable("userID") int userID, @PathVariable("taskID") int taskID, @RequestBody String imageUrl) throws UserNotFoundException, TaskNotFoundException {
         try {
-            return new ResponseEntity<>(service.addImageToTask(userID, taskID, image), HttpStatus.OK);
+            return new ResponseEntity<>(service.updateTaskCategory(userID, taskID, imageUrl), HttpStatus.OK);
         } catch(UserNotFoundException e) {
             throw e;
         } catch(TaskNotFoundException e) {
@@ -192,19 +192,33 @@ public class UserTaskController {
         }
     }
 
-    @DeleteMapping("/user/{userID}/task/{taskID}/image")
-    public ResponseEntity<?> deleteImageFromTask(@PathVariable("userID") int userID, @PathVariable("taskID") int taskID, @RequestBody Image image) throws UserNotFoundException, TaskNotFoundException {
-        try {
-            return new ResponseEntity<>(service.deleteImageFromTask(userID, taskID, image), HttpStatus.OK);
-        } catch(UserNotFoundException e) {
-            throw e;
-        } catch(TaskNotFoundException e) {
-            throw e;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @PostMapping("/user/{userID}/task/{taskID}/image")
+//    public ResponseEntity<?> addImageToTask(@PathVariable("userID") int userID, @PathVariable("taskID") int taskID, @RequestBody Image image) throws UserNotFoundException, TaskNotFoundException {
+//        try {
+//            return new ResponseEntity<>(service.addImageToTask(userID, taskID, image), HttpStatus.OK);
+//        } catch(UserNotFoundException e) {
+//            throw e;
+//        } catch(TaskNotFoundException e) {
+//            throw e;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
+//
+//    @DeleteMapping("/user/{userID}/task/{taskID}/image")
+//    public ResponseEntity<?> deleteImageFromTask(@PathVariable("userID") int userID, @PathVariable("taskID") int taskID, @RequestBody Image image) throws UserNotFoundException, TaskNotFoundException {
+//        try {
+//            return new ResponseEntity<>(service.deleteImageFromTask(userID, taskID, image), HttpStatus.OK);
+//        } catch(UserNotFoundException e) {
+//            throw e;
+//        } catch(TaskNotFoundException e) {
+//            throw e;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 
     @PutMapping("/user/{userID}/task/{taskID}/mark-complete")
     public ResponseEntity<?> markTaskAsComplete(@PathVariable("userID") int userID, @PathVariable("taskID") int taskID) throws UserNotFoundException, TaskNotFoundException {

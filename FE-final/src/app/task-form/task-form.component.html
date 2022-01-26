@@ -12,9 +12,9 @@
                 <div class="col-12">
                     <div class=" form-outline">
                         <label for="title" >Task Title </label>
-                        <input type="text" name="title" id="title"  class="form-control"  formControlName="title"/> 
+                        <input type="text" name="title" id="title"  class="form-control"  formControlName="title"/>
                     </div>
-                    
+
                         <mdb-error *ngIf="title && title.invalid && (title.dirty || title.touched)" class="text-danger ml-4 mt-6">Title is Required</mdb-error>
                 </div>
             </div>
@@ -28,23 +28,42 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
                         <label for="category" >Category </label>
                         <input type="text" name="category" id="category" formControlName="category" class="form-control" >
-                        <mdb-error *ngIf="category && category.invalid && (category.dirty || category.touched)" class="text-danger mx-4">Category should not be empty</mdb-error> 
+                        <mdb-error *ngIf="category && category.invalid && (category.dirty || category.touched)" class="text-danger mx-4">Category should not be empty</mdb-error>
                     </div>
                 </div>
             </div>
-            
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="category" >Image Link </label>
+                        <input type="text" name="imageUrl" id="imageUrl" formControlName="imageUrl" class="form-control" >
+                        <mdb-error *ngIf="imageUrl && imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)" class="text-danger mx-4">imageUrl should not be empty</mdb-error>
+                    </div>
+                </div>
+            </div>
+
+<!--            <div class="row">-->
+<!--                <div class="col-12">-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="category" >Upload Image </label><br>-->
+<!--                        <input type="file" (change)="selectFile($event)" formControlName="imageUrl" class="form-control"/>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
             <div class="row">
                 <div class="col-lg-5">
                     <div class="form-outline">
                         <label for="dueDate" >Due Date </label>
                         <input type="date" name="dueDate" id="dueDate" formControlName="dueDate" class="form-control" >
-                         <mdb-error *ngIf="dueDate && dueDate.invalid && (dueDate.dirty || dueDate.touched)" class="text-danger mx-4">Due date should not be empty</mdb-error> 
+                         <mdb-error *ngIf="dueDate && dueDate.invalid && (dueDate.dirty || dueDate.touched)" class="text-danger mx-4">Due date should not be empty</mdb-error>
                     </div>
                 </div>
 
@@ -69,13 +88,12 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="modal-footer">
-                <button type="button" id="closebtn" class="btn btn-secondary" data-dismiss="#modal-content" (click)="closeModel()">Close</button>
-                <input class="btn btn-save" type="submit" value="Save" />
+<!--                <button type="button" id="closebtn" class="btn btn-primary" data-dismiss="#modal-content" (click)="closeModel()">Close</button>-->
+                <input class="btn btn-primary" type="submit" value="Save" />
               </div>
-                
+
         </form>
     </div>
 </div>
-  

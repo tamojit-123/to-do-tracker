@@ -6,8 +6,9 @@ export class Task {
     priorityLevel:string;
     category:string;
     completed : boolean =false;
- 
-    constructor(taskID: number, taskHeading : string, taskContent:string, dueDate:string, priorityLevel:string, category:string)
+    imageUrl: string;
+
+    constructor(taskID: number, taskHeading : string, taskContent:string, dueDate:string, priorityLevel:string, category:string, imageUrl:string)
     {
        this.taskID = taskID;
         this.taskHeading=taskHeading;
@@ -15,6 +16,7 @@ export class Task {
         this.dueDate=dueDate;
         this.priorityLevel=priorityLevel;
         this.category = category;
+        this.imageUrl=imageUrl;
     }
- 
+
  }

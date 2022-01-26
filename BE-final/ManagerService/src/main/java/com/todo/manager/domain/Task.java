@@ -22,7 +22,8 @@ public class Task implements Comparable<Task> {
     private Priority priorityLevel;
     private String category;
     private boolean isCompleted = false;
-    private List<Image> images = new ArrayList<>();
+//    private List<Image> images = new ArrayList<>();
+    private String imageUrl;
 
 
     @Override

@@ -9,8 +9,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="EurekaServer" />
         <module name="ArchiveService" />
-        <module name="AuthenticationService" />
         <module name="ReminderService" />
+        <module name="AuthenticationService" />
+        <module name="ImageService" />
         <module name="ManagerService" />
         <module name="GatewayService" />
       </profile>
@@ -22,6 +23,7 @@
       <module name="AuthenticationService" options="-parameters" />
       <module name="EurekaServer" options="-parameters" />
       <module name="GatewayService" options="-parameters" />
+      <module name="ImageService" options="-parameters" />
       <module name="ManagerService" options="-parameters" />
       <module name="ReminderService" options="-parameters" />
     </option>
