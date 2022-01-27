@@ -1,0 +1,114 @@
+version: '3.5'
+services:
+  mysqlservice:
+    image: mysql:5.5
+    ports:
+      - 3306:3306
+    container_name: mysql-container
+    network_mode: host
+    hostname: localhost
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME: user
+      MYSQL_PASSWORD : root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+  mongodbservice:
+    image: mongo
+    container_name: mongo-container
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 27017:27017
+
+
+  authenticationservice:
+    container_name: todo-authentication-service
+    build: AuthenticationService/
+    network_mode: host
+    ports:
+      - 8081:8081
+    depends_on:
+      - mysqlservice
+      - eurekaServer
+      - gatewayservice
+    restart: always
+    hostname: localhost
+    image: authentication-image
+
+  managerservice:
+    container_name: todo-manager-service
+    build: TODOService/
+    network_mode: host
+    ports:
+      - 8082:8082
+    depends_on:
+      - mongodbservice
+      - eurekaServer
+      - gatewayservice
+    restart: always
+    hostname: localhost
+    image: manager-image
+
+  reminderservice:
+    container_name: todo-task-service
+    build: NotificationService/
+    network_mode: host
+    ports:
+      - 8083:8083
+    depends_on:
+      - mongodbservice
+      - eurekaServer
+      - gatewayservice
+    restart: always
+    hostname: localhost
+    image: reminder-image
+
+  archiveservice:
+    container_name: todo-archive-service
+    build: ArchiveService/
+    network_mode: host
+    ports:
+      - 8084:8084
+    depends_on:
+      - mongodbservice
+      - eurekaServer
+      - gatewayservice
+    restart: always
+    hostname: localhost
+    image: archive-image
+
+  imageservice:
+    container_name: todo-image-service
+    build: ImageService/
+    network_mode: host
+    ports:
+      - 8085:8085
+    depends_on:
+      - mongodbservice
+      - eurekaServer
+      - gatewayservice
+    restart: always
+    hostname: localhost
+    image: archive-image
+
+
+
+  gatewayservice:
+    container_name: cloud-api-service
+    build: GatewayService/
+    network_mode: host
+    ports:
+      - 9000:9000
+    restart: always
+    depends_on:
+      - eurekaServer
+
+
+  eurekaServer:
+    image: eureka-service
+    build: EurekaServer/
+    restart: always
+    network_mode: host
+    ports:
+      - 8761:8761

@@ -1,0 +1,14 @@
+.high{
+    border:2px solid red;
+    background-color: #efa39a;
+}
+
+.med{
+    border:2px solid #e6c300;
+    background-color: #f8ee90;
+}
+
+.low{
+    border:2px solid #1276dc;
+    background-color: #B0CAFA;
+}

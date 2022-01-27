@@ -1,0 +1,7 @@
+com\image\exception\FileUploadingException.class
+com\image\upload\message\Response.class
+com\image\ImageServiceApplication.class
+com\image\service\ImageService.class
+com\image\service\ImageServiceImpl.class
+com\image\controller\ImageController.class
+com\image\model\Image.class

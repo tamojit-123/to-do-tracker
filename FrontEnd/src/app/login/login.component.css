@@ -1,0 +1,9 @@
+.card{
+    border-radius: 20px ;
+    border:#e6e6e6 2px solid;
+}
+
+.btn{
+    background-color: #0695FE;
+    color: white;
+}

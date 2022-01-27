@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="EurekaServer" />
+        <module name="ArchiveService" />
+        <module name="TODOService" />
+        <module name="NotificationService" />
+        <module name="AuthenticationService" />
+        <module name="ImageService" />
+        <module name="GatewayService" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ArchiveService" options="-parameters" />
+      <module name="AuthenticationService" options="-parameters" />
+      <module name="EurekaServer" options="-parameters" />
+      <module name="GatewayService" options="-parameters" />
+      <module name="ImageService" options="-parameters" />
+      <module name="NotificationService" options="-parameters" />
+      <module name="TODOService" options="-parameters" />
+    </option>
+  </component>
+</project>
