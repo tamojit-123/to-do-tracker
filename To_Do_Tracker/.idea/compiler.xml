@@ -12,10 +12,12 @@
         <module name="TODOService" />
         <module name="NotificationService" />
         <module name="AuthenticationService" />
-        <module name="ImageService" />
         <module name="GatewayService" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ImageService" target="11" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
