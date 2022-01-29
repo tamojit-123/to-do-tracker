@@ -12,3 +12,11 @@
     border:2px solid #1276dc;
     background-color: #B0CAFA;
 }
+
+.text-length {
+    display: block;
+    width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

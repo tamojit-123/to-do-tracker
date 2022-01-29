@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+  import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,8 +21,13 @@ import { TaskManagerService } from './services/taskmanager.service';
 import { TaskReminderService } from './services/taskreminder.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { CustomToastComponent } from './custom-toast/custom-toast.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 @NgModule({
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   declarations: [
     AppComponent,
     TasksComponent,
@@ -32,7 +37,11 @@ import { CustomToastComponent } from './custom-toast/custom-toast.component';
     RegisterComponent,
     TaskCardComponent,
     TaskFormComponent,
-    CustomToastComponent
+    CustomToastComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,

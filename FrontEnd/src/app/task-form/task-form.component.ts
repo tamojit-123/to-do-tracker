@@ -37,7 +37,9 @@ export class TaskFormComponent implements OnInit {
 
   //get loggedIn UserID and Task Id
   currentUserID!: number;
-  latestTaskID!: number
+  latestTaskID!: number;
+
+  minDate:any = ""
 
   ngOnInit(): void
   {
@@ -51,6 +53,8 @@ export class TaskFormComponent implements OnInit {
       console.log(this.latestTaskID)
       this.id = this.latestTaskID + 1
     })
+
+    this.getDate();
   }
 
   // Form Submit
@@ -80,6 +84,22 @@ export class TaskFormComponent implements OnInit {
     }
 
   }
+
+  getDate(){
+    const date: any = new Date();
+    let toDate: any = date.getDate();
+    if(toDate<10){
+      toDate= "0" + toDate;
+    }
+    let month: any = date.getMonth() + 1;
+    if(month<10){
+      month= "0" + month;
+    }
+    const year = date.getFullYear();
+    this.minDate=year + "-" + month + "-" + toDate;
+    console.log(this.minDate)
+  }
+
 
 // Close Model
   closeModel(){

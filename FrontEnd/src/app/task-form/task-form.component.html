@@ -60,8 +60,8 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="form-outline">
-                        <label for="dueDate" >Due Date </label>
-                        <input type="date" name="dueDate" id="dueDate" formControlName="dueDate" class="form-control" >
+                        <label for="dueDate" >Date </label>
+                        <input type="date" name="dueDate" id="dueDate" formControlName="dueDate" class="form-control" min="{{minDate}}">
                          <mdb-error *ngIf="dueDate && dueDate.invalid && (dueDate.dirty || dueDate.touched)" class="text-danger mx-4">Due date should not be empty</mdb-error>
                     </div>
                 </div>

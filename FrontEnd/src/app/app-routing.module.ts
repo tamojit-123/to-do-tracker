@@ -6,6 +6,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
 import { TaskFormComponent } from './task-form/task-form.component';
+import {HomeComponent} from "./home/home.component";
+import {AboutComponent} from "./about/about.component";
+import {ContactComponent} from "./contact/contact.component";
+import {PrivacyPolicyComponent} from "./privacy-policy/privacy-policy.component";
 
 const routes: Routes = [
   {
@@ -14,7 +18,7 @@ const routes: Routes = [
     children:[
       {
         path:"",
-        redirectTo:'login',
+        redirectTo:'home',
         pathMatch:'full'
       },
       {
@@ -24,6 +28,22 @@ const routes: Routes = [
       {
         path:'register',
         component:RegisterComponent
+      },
+      {
+        path:'home',
+        component:HomeComponent
+      },
+      {
+        path:'about',
+        component:AboutComponent
+      },
+      {
+        path:'contact',
+        component:ContactComponent
+      },
+      {
+        path:'privacy-policy',
+        component:PrivacyPolicyComponent
       },
     ]
   },

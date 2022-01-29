@@ -1,6 +1,5 @@
 <div class="card" [ngClass]='priorityClass()'>
     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-<!--            <img src="{{ task.imageUrl }}" class="img-fluid" alt="{{ task.taskHeading }}"/>-->
         <a>
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
         </a>
@@ -9,7 +8,7 @@
         <div>
             <span><h4 class="card-title">{{task.taskHeading}} <i *ngIf='task.completed' class="fas fa-check-circle" style="color: green"></i></h4></span>
         </div>
-        <p class="card-title">{{task.taskContent}}</p>
+        <p class="card-title text-length">{{task.taskContent}}</p>
         <h4 class="card-title"><i class="fas fa-clock"></i> {{task.dueDate}}</h4>
             <div class="col-2">
                 <div class="dropdown" dropdown>
@@ -24,13 +23,10 @@
                             <button class="dropdown-item cardDetails" (click)=openConfirmModal(confirmArchive)>Move to archive</button>
                         </div>
                 </div>
-<!--                <input type="file" (change)="selectFile($event)" />-->
-<!--                <button type="button" class="btn btn-primary row" [disabled]="!selectedFiles" (click)="upload()">-->
-<!--                    <i class="fas fa-image"></i>-->
-<!--                </button>-->
             </div>
-
-<!--        <div [ngClass]='priorityClass()'></div>-->
+<!--        <div class="col-2">-->
+<!--            <span><h4 class="card-title"><i class="fas fa-share-alt"></i></h4></span>-->
+<!--        </div>-->
     </div>
 </div>
 
@@ -74,15 +70,6 @@
                         </div>
                     </div>
                 </div>
-
-<!--                <div class="row">-->
-<!--                    <div class="col-12">-->
-<!--                        <div class="form-group">-->
-<!--                            <label for="category" >Image Link </label>-->
-<!--                            <input type="text" name="imageUrl" id="imageUrl" class='form-control' formControlName='imageUrl' readonly>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
 
                 <div class="row">
                     <div class="col-lg-5">
@@ -199,7 +186,6 @@
                 </div>
 
                 <div class="modal-footer">
-<!--                    <button type="button" class="btn btn-secondary" (click)='modal.close()'>Close</button>-->
                     <input class="btn btn-primary" type="submit" value="Save Changes"/>
                   </div>
 

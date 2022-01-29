@@ -19,7 +19,7 @@ export class LayoutComponent implements OnInit {
   overDueMessage!:string
   nearDueMessage!:string
 
-  currentUser = localStorage.getItem('currentUserID')
+  currentUser = localStorage.getItem('email')
 
   constructor(private modalService: BsModalService,
               private router: Router,
@@ -44,6 +44,6 @@ export class LayoutComponent implements OnInit {
     localStorage.setItem('loggedIn', 'false')
     localStorage.removeItem('currentUserID')
     this.ngOnInit()
-    this.router.navigateByUrl('/')
+    this.router.navigateByUrl('/login')
   }
 }

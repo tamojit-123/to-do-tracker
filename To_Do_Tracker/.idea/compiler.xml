@@ -9,8 +9,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="EurekaServer" />
         <module name="ArchiveService" />
-        <module name="TODOService" />
         <module name="NotificationService" />
+        <module name="TODOService" />
         <module name="AuthenticationService" />
         <module name="GatewayService" />
       </profile>
