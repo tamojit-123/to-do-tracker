@@ -31,12 +31,16 @@ Todo Tracker application allows user to add todo, assign categories to them and 
 	    └── README 			                   
 
 
+## Architecture Diagram
+![Todo Architecture Diagram](https://user-images.githubusercontent.com/40804626/152660525-83c50fab-49ee-44c8-9194-625b115e6071.png)
+
+## Flow Diagram
+![todo](https://user-images.githubusercontent.com/40804626/152660598-4983aa68-7394-4724-9318-1ce95898fc77.png)
+
 
 ## To run the backend Application
 
 - Clone the repository 
-
-
 
 ```shell
 cd To_Do_Tracker
