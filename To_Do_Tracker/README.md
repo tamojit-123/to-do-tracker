@@ -19,19 +19,19 @@ In this project, we created six service.
 ### Project structure
 
     To_Do_Tracker
-	|
-	├── ArchiveService
-	├── AuthenticationService
-	├── EurekaServer
-	├── GatewayService
-	├── NotificationService
-    ├── TODOService
-    ├── LICENSE
-    ├── README.md
-    ├── docker-compose.yml
-	├── mvnw
-	├── mvnw.cmd   			                   
-	└── pom.xml
+	    |
+	    ├── ArchiveService
+	    ├── AuthenticationService
+	    ├── EurekaServer
+	    ├── GatewayService
+	    ├── NotificationService
+        ├── TODOService
+        ├── LICENSE
+        ├── README.md
+        ├── docker-compose.yml
+	    ├── mvnw
+	    ├── mvnw.cmd   			                   
+	    └── pom.xml
 
 
 ### Steps to be followed while running using docker <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> [Ubuntu]:
