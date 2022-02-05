@@ -1,0 +1,39 @@
+:host {
+    background-color: #EBECED;
+    position: relative;
+    overflow: hidden;
+    margin: 50px 0 6px;
+    padding: 10px 10px 10px 10px;
+    width: 300px;
+    border-radius: 15px !important;
+    pointer-events: all;
+    cursor: pointer;
+    /*border-color: blue !important;*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+:host.border-blue{
+    border:2px solid #0487f3;
+}
+:host.border-green{
+    border: 2px solid #51d21a;
+}
+:host.border-red{
+    border: 2px solid #fe3306;
+}
+
+.toast-close-button{
+    color: #000000;
+    opacity: 1;
+
+}
+.toast-close-button:hover{
+    background-color: #f35e49;
+}
+
+.custom-title{
+    color: #000000;
+}
+.custom-message{
+    color: #000000;
+}

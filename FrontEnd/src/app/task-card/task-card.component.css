@@ -1,0 +1,34 @@
+.high{
+    border:2px solid red;
+    background-color: #efa39a;
+}
+
+.med{
+    border:2px solid #e6c300;
+    background-color: #f8ee90;
+}
+
+.low{
+    border:2px solid #1276dc;
+    background-color: #B0CAFA;
+}
+
+details {
+    padding:0 1rem;
+}
+
+details > summary{
+    list-style:none;
+    color:grey;
+}
+details>summary::-webkit-details-marker{
+    display:none;
+}
+.taskContent{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    -webkit-appearance: none;
+}

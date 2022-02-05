@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.red{
+    background-color: #d77474;
+}
+
+.green {
+    background-color: #7bd77b;
+}
+
+.yellow {
+    background-color: #d9c264;
+}
+
+.blue{
+    background-color: #0695FE;
+}
+
+mdb-navbar .navbar .navbar-1 .navbar-dark .navbar-toggler-icon {
+    background-image: url('src/assets/hamburgur.svg');
+}

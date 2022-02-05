@@ -1,0 +1,31 @@
+.privacyPolicy{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+}
+
+h1{
+    font-size: 300%;
+    font-weight: bold;
+    margin-top: 4%;
+    margin-bottom: 3%;
+}
+h2{
+    font-size: 250%;
+    font-weight: bold;
+    margin-top: 4%;
+    margin-bottom: 3%;
+}
+h3{
+    font-size: 200%;
+    font-weight: bold;
+    margin-top: 4%;
+    margin-bottom: 3%;
+}
+p{
+    font-size: 120%;
+
+}
+li{
+    font-size: 100%;
+}

@@ -1,0 +1,78 @@
+<div class="modal-content text-color" id="taskModel"  role="dialog" aria-labelledby="taskModelForm" aria-hidden="true">
+    <div class="modal-header">
+        <h6 class="">Add New Task</h6>
+        <button type="button" class="close" aria-label="Close" (click)=closeModel() data-dismiss="#modal-content">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <form name="taskForm" [formGroup]="taskForm" (ngSubmit)="addTask()">
+            <div class="row">
+                <div class="col-12">
+                    <div class=" form-outline">
+                        <label for="title" >Task Title </label>
+                        <input type="text" name="title" id="title"  class="form-control"  formControlName="title"/>
+                    </div>
+                        <mdb-error *ngIf="title && title.invalid && (title.dirty || title.touched)" class="text-danger ml-4 mt-6">Title is Required</mdb-error>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="desciption" >Task Description </label>
+                        <textarea type="text" name="desciption" id="desciption" class="form-control" formControlName="desciption" rows="3"></textarea>
+                            <mdb-error *ngIf="desciption && desciption.invalid && (desciption.dirty || desciption.touched)" class="text-danger mx-4">Write some content about your task</mdb-error>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="category" >Category </label>
+                        <input type="text" name="category" id="category" formControlName="category" class="form-control" >
+                        <mdb-error *ngIf="category && category.invalid && (category.dirty || category.touched)" class="text-danger mx-4">Category should not be empty</mdb-error>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="form-outline">
+                        <label for="dueDate" >Date </label>
+                        <input type="date" name="dueDate" id="dueDate" formControlName="dueDate" class="form-control" min="{{minDate}}">
+                         <mdb-error *ngIf="dueDate && dueDate.invalid && (dueDate.dirty || dueDate.touched)" class="text-danger mx-4">Due date should not be empty</mdb-error>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="form-group">
+                        <p>Priority</p>
+                        <div class="form-check form-check-inline">
+                            <label for="high">
+                            <input id="high" type="radio" class="form-check-control" formControlName="priorityLevel" value="HIGH" name="priorityLevel">
+                            High</label>
+                        </div >
+                        <div class="form-check form-check-inline">
+                            <label for="medium" >
+                            <input id="medium" type="radio" class="form-check-control" formControlName="priorityLevel" value="MEDIUM" name="priorityLevel">
+                            Medium</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label for="low">
+                            <input id="low" type="radio" class="form-check-control" formControlName="priorityLevel" value="LOW" name="priorityLevel">
+                            Low</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <input class="btn btn-primary" type="submit" value="Save" />
+              </div>
+
+        </form>
+    </div>
+</div>

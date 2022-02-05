@@ -1,0 +1,258 @@
+<div class="card" [ngClass]='priorityClass()'>
+    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+        <a>
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+        </a>
+    </div>
+    <div class="card-body">
+        <div>
+            <span><h4 class="card-title">{{task.taskHeading}} <i *ngIf='task.completed' class="fas fa-check-circle" style="color: green"></i></h4></span>
+        </div>
+        <details>
+            <summary>View details...</summary>
+            <div class="details-content" >
+                <div class="card-title">
+                    <p class="taskContent">{{task.taskContent}}</p>
+                </div>
+            </div>
+        </details>
+        <h4 class="card-title"><i class="fas fa-clock"></i> {{task.dueDate}}</h4>
+        <div class="col-2">
+            <div class="dropdown" dropdown>
+                <button  dropdownToggle  type="button" class="btn btn-dark row" >
+                    <i class="fas fa-cog"></i>
+                </button>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                    <button class="dropdown-item cardDetails" *ngIf='!task.completed' (click)="openFormModal(viewModal)">View Details</button>
+                    <button class="dropdown-item cardDetails" *ngIf='!task.completed' (click)="openFormModal(editModal)">Update</button>
+                    <button class="dropdown-item cardDetails" *ngIf='!task.completed' (click)="openConfirmModal(confirmComplete)">Mark as Complete</button>
+                    <button class="dropdown-item cardDetails" (click)="openConfirmModal(confirmDelete)">Delete</button>
+                    <button class="dropdown-item cardDetails" (click)=openConfirmModal(confirmArchive)>Move to archive</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<ng-template #viewModal let-modal>
+    <div class="modal-content text-color"  id="taskModel" tabindex="1" role="dialog" aria-labelledby="taskModelForm" aria-hidden="true">
+        <div class="modal-header">
+            <h6>Task Details</h6>
+            <button type="button" class="close" aria-label="Close"  (click)='modal.dismiss()'>
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <form name="taskForm" [formGroup]="taskForm">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class=" form-outline">
+                            <label for="title" >Task Title </label>
+                            <input type="text" name="title" id="title"  class='form-control' formControlName='title' readonly/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="desciption" >Task Description </label>
+                            <textarea type="text" name="desciption" id="desciption" class='form-control' formControlName='desciption' rows="3" readonly></textarea>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="category" >Category </label>
+                            <input type="text" name="category" id="category" class='form-control' formControlName='category' readonly>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="form-group">
+                            <label for="dueDate" >Due Date </label>
+                            <input type="text" name="dueDate" id="dueDate"  class='form-control' formControlName='dueDate' readonly>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <div class="form-group">
+                            <p>Priority</p>
+                            <div class="form-check form-check-inline">
+                                <label for="high">
+                                    <input id="high" type="radio" class="form-check-control" formControlName="priorityLevel" value="HIGH" name="priorityLevel" readonly>
+                                    High</label>
+                            </div >
+                            <div class="form-check form-check-inline">
+                                <label for="medium" >
+                                    <input id="medium" type="radio" class="form-check-control" formControlName="priorityLevel" value="MEDIUM" name="priorityLevel" readonly>
+                                    Medium</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label for="low">
+                                    <input id="low" type="radio" class="form-check-control" formControlName="priorityLevel" value="LOW" name="priorityLevel" readonly>
+                                    Low</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)='modal.close()'>Close</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</ng-template>
+
+<ng-template #editModal let-modal>
+    <div class="modal-content text-color"  id="taskModel" tabindex="1" role="dialog" aria-labelledby="taskModelForm" aria-hidden="true">
+        <div class="modal-header ">
+            <h6 >Update Task </h6>
+            <button type="button" class="close" aria-label="Close"  (click)='modal.dismiss()'>
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <form name="taskForm" [formGroup]="taskForm" (ngSubmit)="updateTask()">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class=" form-outline">
+                            <label for="title" >Task Title </label>
+                            <input type="text" name="title" id="title"  class='form-control' formControlName='title'/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="desciption" >Task Description </label>
+                            <textarea type="text" name="desciption" id="desciption" class='form-control' formControlName='desciption' rows="3"></textarea>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="category" >Category </label>
+                            <input type="text" name="category" id="category" class='form-control' formControlName='category'>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="form-outline">
+                            <label for="dueDate" >Due Date </label>
+                            <input type="date" name="dueDate" id="dueDate"  class='form-control' formControlName='dueDate'>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <div class="form-group">
+                            <p>Priority</p>
+                            <div class="form-check form-check-inline">
+                                <label for="high">
+                                    <input id="high" type="radio" class="form-check-control" formControlName="priorityLevel" value="HIGH" name="priorityLevel">
+                                    High</label>
+                            </div >
+                            <div class="form-check form-check-inline">
+                                <label for="medium" >
+                                    <input id="medium" type="radio" class="form-check-control" formControlName="priorityLevel" value="MEDIUM" name="priorityLevel">
+                                    Medium</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label for="low">
+                                    <input id="low" type="radio" class="form-check-control" formControlName="priorityLevel" value="LOW" name="priorityLevel">
+                                    Low</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <input class="btn btn-primary" type="submit" value="Save Changes"/>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</ng-template>
+
+<ng-template #confirmComplete let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">Confirm Complete</h5>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <h6>Are you sure you want to mark this task as 'Completed'?</h6>
+    </div>
+    <div class="modal-footer">
+        <div>
+            <button data-dismiss="modal" class="btn btn-success" (click)="markComplete()">Yes</button>
+            <button type="button" class="btn btn-danger" (click)="modal.close()">No</button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #confirmDelete let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">Confirm Delete</h5>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <h6>Are you sure you want to delete this Task</h6>
+    </div>
+    <div class="modal-footer">
+        <div>
+            <button data-dismiss="modal" class="btn btn-warning" (click)="deleteTask()">Yes</button>
+            <button type="button" class="btn btn-success" (click)="modal.close()">No</button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #confirmArchive let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">Confirm Archive</h5>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <h6>Are you sure you want to move this task to 'Archive'?</h6>
+    </div>
+    <div class="modal-footer">
+        <div>
+            <button data-dismiss="modal" class="btn btn-success" (click)="doArchive()">Yes</button>
+            <button type="button" class="btn btn-danger" (click)="modal.close()">No</button>
+        </div>
+    </div>
+</ng-template>
+

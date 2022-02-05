@@ -1,0 +1,67 @@
+<div class="card-body">
+  <div class="container-fluid">
+    <!--Main Navigation-->
+    <header>
+      <!-- Sidebar -->
+      <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+        <div class="position-sticky">
+          <div class="list-group list-group-flush mx-3 mt-4">
+            <a
+                    href="#"
+                    class="list-group-item list-group-item-action py-2 ripple active"
+                    aria-current="true"
+            >
+              <span><img
+                      src="assets/tasks.png"
+                      height="20"
+                      alt="TODO"
+                      loading="lazy"
+                      style="margin-top: -1px;"
+              /><b>TO-DO Dashboard</b> </span>
+            </a>
+            <a (click)='getAllTasks()' class="list-group-item list-group-item-action py-2 ripple ">
+              <i class="fas fa-tasks fa-fw me-3"></i><span>All Tasks</span>
+            </a>
+            <a (click)='getPending()' class="list-group-item list-group-item-action py-2 ripple"
+            ><i class="fas fa-spinner fa-fw me-3"></i><span>Pending</span></a
+            >
+            <a (click)='getHighPriority()' class="list-group-item list-group-item-action py-2 ripple"
+            ><i class="fas fa-exclamation-circle fa-fw me-3"></i><span>High Priority</span></a
+            >
+            <a (click)='getOverDue()' class="list-group-item list-group-item-action py-2 ripple">
+              <i class="fas fa-exclamation-triangle fa-fw me-3"></i><span>Over Due <span class="badge rounded-pill badge-notification bg-danger">{{overDueCount}}</span></span>
+            </a>
+            <a (click)='getNearDue()' class="list-group-item list-group-item-action py-2 ripple"
+            ><i class="fas fa-exclamation fa-fw me-3"></i><span>Near Due <span class="badge rounded-pill badge-notification bg-danger">{{nearDueCount}}</span></span></a
+            >
+            <a (click)='getCompleted()' class="list-group-item list-group-item-action py-2 ripple"
+            ><i class="fas fa-check-circle fa-fw me-3"></i><span>Completed</span></a
+            >
+            <a (click)='getArchived()' class="list-group-item list-group-item-action py-2 ripple"
+            ><i class="fas fa-archive fa-fw me-3"></i><span>Archive</span></a
+            >
+            <a class="list-group-item list-group-item-action py-2 ripple"
+            >Color Code For Cards:</a
+            >
+            <a class="list-group-item list-group-item-action py-2 ripple"
+            ><i class="fas fa-circle fa-fw me-3" style="color: #d77474"></i><span>High Priority</span></a
+            >
+            <a class="list-group-item list-group-item-action py-2 ripple"
+            ><i class="fas fa-circle fa-fw me-3" style="color: #d9c264"></i><span>Medium Priority</span></a
+            >
+            <a class="list-group-item list-group-item-action py-2 ripple"
+            ><i class="fas fa-circle fa-fw me-3" style="color: #B0CAFA"></i><span>Low Priority</span></a
+            >
+          </div>
+        </div>
+      </nav>
+      <!-- Sidebar -->
+    </header>
+    <!--Main Navigation-->
+    <div class="container" style="margin-left: auto;">
+      <div class="row m-5">
+        <app-task-card class="p-3 col-lg-3 col-md-6 col-sm-12 h-25" *ngFor="let task of tasksToDisplay" [task]='task'></app-task-card>
+      </div>
+    </div>
+  </div>
+</div>
