@@ -13,12 +13,15 @@
   <!-- Collapsible content -->
   <links>
     <!-- Links -->
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link active fw-bold" aria-current="page" style="color: black;" href="/home">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link active fw-bold" aria-current="page" style="color: black;" href="/about">About</a>
+      </li>
+      <li *ngIf='!isLoggedIn' class="nav-item">
+        <a class="nav-link active fw-bold" aria-current="page" style="color: black;" href="/feature">Feature</a>
       </li>
       <li class="nav-item">
         <a class="nav-link active fw-bold" aria-current="page" style="color: black;" href="/contact">Contact</a>
@@ -26,7 +29,9 @@
       <li *ngIf='isLoggedIn' class="nav-item">
         <a class="nav-link active fw-bold" aria-current="page" style="color: black;" href="/cards">Todos</a>
       </li>
+    </ul>
 
+    <ul class="navbar-nav ml-auto">
       <li *ngIf='isLoggedIn' class="nav-item dropdown" dropdown>
         <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light active fw-bold" style="color: black;" mdbWavesEffect>
           <i class="fas fa-user-alt"></i> {{email}}<span class="caret"></span></a>
@@ -37,127 +42,17 @@
           <a class="dropdown-item waves-light fw-normal" mdbWavesEffect (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>
       </li>
-
-<!--      <li *ngIf='isLoggedIn' class="nav-item">-->
-<!--        <a dropdownToggle class="nav-link active fw-bold" aria-current="page" style="color: black;"><i class="fas fa-user-alt"></i> {{email}}</a>-->
-<!--        <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">-->
-<!--          <a class="dropdown-item cardDetails fw-normal" style="color: black;" href="/profile"><i class="fas fa-user-alt"></i> User Details</a>-->
-<!--          <a class="dropdown-item cardDetails fw-normal" style="color: black;" (click)="openModal()"><i class="fas fa-plus-circle"></i> Add Todo</a>-->
-<!--          <a class="dropdown-item cardDetails fw-normal" style="color: black;" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>-->
-<!--        </div>-->
-<!--      </li>-->
-<!--      <button *ngIf='isLoggedIn' type="button" class="btn btn-outline-dark btn-rounded py-1 px-1" data-mdb-ripple-color="dark" style="border-radius: 50px"><i class="fas fa-user-alt"></i></button>-->
-<!--      <div *ngIf='isLoggedIn' class="col-2">-->
-<!--        <div class="dropdown" dropdown>-->
-<!--          <h5 dropdownToggle style="color: black;">-->
-<!--            {{email}}-->
-<!--          </h5>-->
-<!--          <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">-->
-<!--            <a class="dropdown-item cardDetails fw-normal" style="color: black;" href="/profile"><i class="fas fa-user-alt"></i> User Details</a>-->
-<!--            <a class="dropdown-item cardDetails fw-normal" style="color: black;" (click)="openModal()"><i class="fas fa-plus-circle"></i> Add Todo</a>-->
-<!--            <a class="dropdown-item cardDetails fw-normal" style="color: black;" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
       <li *ngIf='!isLoggedIn' class="nav-item">
         <a class="btn px-3" aria-current="page" href="/login" role="button"><i class="fas fa-sign-in-alt"></i> Login</a>
       </li>
       <li *ngIf='!isLoggedIn' class="nav-item">
         <a class="btn px-3" aria-current="page" href="/register" role="button"><i class="fas fa-user-plus"></i> Register</a>
       </li>
-<!--      <a *ngIf='!isLoggedIn' class="btn px-3" href="/login" role="button"><i class="fas fa-sign-in-alt"></i> Login</a>-->
-<!--      <a *ngIf='!isLoggedIn' class="btn px-3" href="/register" role="button"><i class="fas fa-user-plus"></i> Register</a>-->
     </ul>
     <!-- Links -->
   </links>
   <!-- Collapsible content -->
 </mdb-navbar>
-
-
-<!--/.Navbar-->
-
-<!--&lt;!&ndash; Navbar &ndash;&gt;-->
-<!--<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">-->
-<!--  &lt;!&ndash; Container wrapper &ndash;&gt;-->
-<!--  <div class="container">-->
-<!--    &lt;!&ndash; Navbar brand &ndash;&gt;-->
-<!--    <a class="navbar-brand me-2">-->
-<!--      <img-->
-<!--              src="assets/tasks.png"-->
-<!--              height="40"-->
-<!--              alt="todo-tracker"-->
-<!--              loading="lazy"-->
-<!--              style="margin-top: -1px;"-->
-<!--      />-->
-<!--    </a>-->
-
-<!--    &lt;!&ndash; Toggle button &ndash;&gt;-->
-<!--    <button-->
-<!--            class="navbar-toggler"-->
-<!--            type="button"-->
-<!--            data-mdb-toggle="collapse"-->
-<!--            data-mdb-target="#navbarButtonsExample"-->
-<!--            aria-controls="navbarButtonsExample"-->
-<!--            aria-expanded="false"-->
-<!--            aria-label="Toggle navigation"-->
-<!--    >-->
-<!--      <i class="fas fa-bars"></i>-->
-<!--    </button>-->
-<!--&lt;!&ndash;    <input type="checkbox" id="click">&ndash;&gt;-->
-<!--&lt;!&ndash;    <label for="click" class="menu-btn">&ndash;&gt;-->
-<!--&lt;!&ndash;      <i class="fas fa-bars"></i>&ndash;&gt;-->
-<!--&lt;!&ndash;    </label>&ndash;&gt;-->
-
-<!--    &lt;!&ndash; Collapsible wrapper &ndash;&gt;-->
-<!--    <div class="collapse navbar-collapse" id="navbarButtonsExample">-->
-<!--      &lt;!&ndash; Left links &ndash;&gt;-->
-<!--      <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
-<!--        <li class="nav-item">-->
-<!--          <a class="nav-link" href="/home"><b class="fw-bold">TO-DO Tracker</b></a>-->
-<!--        </li>-->
-<!--      </ul>-->
-<!--      &lt;!&ndash; Left links &ndash;&gt;-->
-<!--      &lt;!&ndash; Left links &ndash;&gt;-->
-<!--      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">-->
-<!--        <li class="nav-item">-->
-<!--          <a class="nav-link active fw-bold" aria-current="page" href="/home">Home</a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--          <a class="nav-link active fw-bold" aria-current="page" href="/about">About</a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--          <a class="nav-link active fw-bold" aria-current="page" href="/contact">Contact</a>-->
-<!--        </li>-->
-<!--        <li *ngIf='isLoggedIn' class="nav-item">-->
-<!--          <a class="nav-link active fw-bold" aria-current="page" href="/cards">Todos</a>-->
-<!--        </li>-->
-<!--      </ul>-->
-
-<!--      <div class="d-flex align-items-center">-->
-<!--        <button *ngIf='isLoggedIn' type="button" class="btn btn-outline-dark btn-rounded py-1 px-1" data-mdb-ripple-color="dark" style="border-radius: 50px"><i class="fas fa-user-alt"></i></button>-->
-<!--        <div *ngIf='isLoggedIn' class="col-2">-->
-<!--          <div class="dropdown" dropdown>-->
-<!--            <h5 dropdownToggle>-->
-<!--              {{email}}-->
-<!--            </h5>-->
-<!--            <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">-->
-<!--              <a class="dropdown-item cardDetails fw-normal" href="/profile"><i class="fas fa-user-alt"></i> User Details</a>-->
-<!--              <a class="dropdown-item cardDetails fw-normal" (click)="openModal()"><i class="fas fa-plus-circle"></i> Add Todo</a>-->
-<!--              <a class="dropdown-item cardDetails fw-normal" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <a *ngIf='!isLoggedIn' class="btn px-3" href="/login" role="button"><i class="fas fa-sign-in-alt"></i> Login</a>-->
-<!--        <a *ngIf='!isLoggedIn' class="btn px-3" href="/register" role="button"><i class="fas fa-user-plus"></i> Register</a>-->
-
-<!--      </div>-->
-<!--    </div>-->
-<!--    &lt;!&ndash; Collapsible wrapper &ndash;&gt;-->
-<!--  </div>-->
-<!--  &lt;!&ndash; Container wrapper &ndash;&gt;-->
-<!--</nav>-->
-<!--&lt;!&ndash; Navbar &ndash;&gt;-->
 
 <div>
   <router-outlet></router-outlet>

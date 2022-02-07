@@ -12,6 +12,7 @@ import {ContactComponent} from "./contact/contact.component";
 import {PrivacyPolicyComponent} from "./privacy-policy/privacy-policy.component";
 import {ForgotPasswordComponent} from "./forgot-password/forgot-password.component";
 import {UserDetailsComponent} from "./user-details/user-details.component";
+import {FeaturesComponent} from "./features/features.component";
 
 const routes: Routes = [
   {
@@ -54,6 +55,10 @@ const routes: Routes = [
       {
         path:'profile',
         component:UserDetailsComponent
+      },
+      {
+        path:'feature',
+        component:FeaturesComponent
       },
     ]
   },

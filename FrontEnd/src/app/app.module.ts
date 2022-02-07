@@ -28,6 +28,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { FeaturesComponent } from './features/features.component';
 
 @NgModule({
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -46,7 +47,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     ContactComponent,
     PrivacyPolicyComponent,
     ForgotPasswordComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    FeaturesComponent
   ],
   imports: [
     BrowserModule,
