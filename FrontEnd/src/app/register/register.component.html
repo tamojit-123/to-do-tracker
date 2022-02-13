@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="form-outline mb-3">
-                    <input formControlName="confirm_password" name="confirm_password" placeholder="Enter confirm password" id="confirm_password" type="password" class="form-control form-control-lg"  required/>
+                    <input formControlName="confirm_password" name="confirm_password" placeholder="Enter confirm password" id="confirm_password" minlength="6" type="password" class="form-control form-control-lg"  required/>
                     <label class="form-label"  for="password">Confirm Password</label>
                     <div *ngIf="f.confirm_password.touched && f.confirm_password.invalid" class="alert alert-danger">
                         <div *ngIf="f.confirm_password.errors?.required">Password is required.</div>
@@ -56,7 +56,7 @@
                     <div class="form-check mb-0">
                         <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" formControlName="policy" required/>
                         <label class="form-check-label" for="form2Example3">
-                            <a href="/privacy-policy">Accept Privacy Policy</a>
+                            Accept <a href="/privacy-policy" target="_blank">Privacy Policy</a>
                         </label>
                     </div>
                 </div>

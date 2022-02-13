@@ -24,7 +24,7 @@
                 <!-- Password input -->
                 <div class="form-outline mb-3">
                     <input type="password" id="password" class="form-control form-control-lg"
-                           placeholder="Enter password" name="password" [(ngModel)]="password" formControlName="password" required/>
+                           placeholder="Enter password" name="password" [(ngModel)]="password" formControlName="password" minlength="6" required/>
                     <label class="form-label" for="password">Password</label>
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Give proper password.</div>
