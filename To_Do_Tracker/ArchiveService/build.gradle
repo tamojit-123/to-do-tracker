@@ -7,10 +7,10 @@ plugins {
 }
 
 dependencies {
-    api 'org.springframework.boot:spring-boot-starter-amqp:2.5.4'
-    api 'org.springframework.boot:spring-boot-starter-data-mongodb:2.5.4'
+    api 'org.springframework.boot:spring-boot-starter-amqp:3.1.5'
+    api 'org.springframework.boot:spring-boot-starter-data-mongodb:3.1.5'
     api 'org.projectlombok:lombok:1.18.20'
-    testImplementation 'org.springframework.amqp:spring-rabbit-test:2.3.10'
+    testImplementation 'org.springframework.amqp:spring-rabbit-test:3.0.10'
 }
 
 group = 'com.todo'
