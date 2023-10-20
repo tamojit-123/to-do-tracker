@@ -7,12 +7,12 @@ plugins {
 }
 
 dependencies {
-    api 'org.springframework.boot:spring-boot-starter-data-mongodb:3.1.5'
-    api 'org.springframework.boot:spring-boot-starter-amqp:3.1.5'
-    api 'org.springframework.cloud:spring-cloud-starter-openfeign:4.0.4'
+    api 'org.springframework.boot:spring-boot-starter-data-mongodb:2.5.4'
+    api 'org.springframework.boot:spring-boot-starter-amqp:2.5.4'
+    api 'org.springframework.cloud:spring-cloud-starter-openfeign:3.0.3'
     api 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'
     api 'org.projectlombok:lombok:1.18.20'
-    testImplementation 'org.springframework.amqp:spring-rabbit-test:3.0.10'
+    testImplementation 'org.springframework.amqp:spring-rabbit-test:2.3.10'
 }
 
 group = 'com.todo'

@@ -7,7 +7,7 @@ plugins {
 }
 
 dependencies {
-    api 'org.springframework.cloud:spring-cloud-starter-gateway:4.0.7'
+    api 'org.springframework.cloud:spring-cloud-starter-gateway:3.0.3'
     api 'io.jsonwebtoken:jjwt:0.9.1'
     compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
 }

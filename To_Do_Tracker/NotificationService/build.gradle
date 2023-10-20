@@ -7,14 +7,10 @@ plugins {
 }
 
 dependencies {
-    api 'org.springframework.boot:spring-boot-starter-data-mongodb:3.1.5'
+    api 'org.springframework.boot:spring-boot-starter-data-mongodb:2.5.4'
     api 'org.projectlombok:lombok:1.18.20'
     api 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'
     api 'org.springframework.boot:spring-boot-starter-mail:2.5.4'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '3.1.5'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
-    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '3.1.5'
 }
 
 group = 'com.todo'

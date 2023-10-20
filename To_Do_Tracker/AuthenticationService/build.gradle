@@ -10,7 +10,7 @@ dependencies {
     api 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.4'
     api 'io.jsonwebtoken:jjwt:0.9.1'
     api 'org.projectlombok:lombok:1.18.20'
-    runtimeOnly 'mysql:mysql-connector-java:8.0.33'
+    runtimeOnly 'mysql:mysql-connector-java:8.0.26'
 }
 
 group = 'com.todo'
