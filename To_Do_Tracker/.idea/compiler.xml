@@ -3,19 +3,8 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="EurekaServer" />
-        <module name="ArchiveService" />
-        <module name="NotificationService" />
-        <module name="TODOService" />
-        <module name="AuthenticationService" />
-        <module name="GatewayService" />
-      </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="ImageService" target="11" />
     </bytecodeTargetLevel>
   </component>
